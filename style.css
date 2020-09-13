@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+i {
+    display: block !important;
+}
+
+body {
+    background-color: rgb(233, 233, 233);
+}
+
+section.container {
+    display: flex;
+    flex-direction: column;
+}
+
+section.creator form {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.creator form h1 {
+    font-size: 70px;
+}
+
+section.creator form input.name {
+    font-size: 20px;
+    width: 40%;
+    margin: 5px;
+    text-align: center;
+}
+
+section.creator form input.description {
+    font-size: 20px;
+    width: 40%;
+    height: 15vh;
+    margin: 5px;
+    text-align: center;
+}
+
+section.creator form button {
+    padding: 5px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: rgb(0, 183, 255);
+}
+
+section.array {
+    margin: 30px auto;
+    width: 70vw;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+section.array ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+    border-left: 1px solid black;
+}
+
+section.array ul i {
+    border-top: 1px solid black;
+    flex-basis: 50px;
+    line-height: 48.7px;
+    font-size: 35px;
+    color: red;
+    background-color: white;
+}
+
+section.array ul i:nth-of-type(2n-1) {
+    background-color: rgb(204, 204, 204);
+}
+
+section.array ul i:nth-last-of-type(1) {
+    border-bottom: 1px solid black;
+}
+
+section.array ul.arrayName {
+    width: 25%;
+}
+
+section.array ul.arrayDescription {
+    width: 65%;
+}
+
+section.array ul.delete {
+    width: 10%;
+    border-right: 1px solid black;
+}
+
+
+section.array ul li {
+    border-top: 1px solid black;
+    padding: 0;
+    flex-basis: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+section.array ul li:nth-last-child(1) {
+    border-bottom: 1px solid black;
+}
+
+section.array ul li:nth-of-type(2n) {
+    background-color: rgb(204, 204, 204);
+    box-shadow: none;
+}
+
+
+section.array ul .first {
+    background-color: rgb(0, 183, 255);
+    font-weight: 700;
+    font-size: 25px;
+}
+
+
+section.number {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    border: 1px solid black;
+    height: 100px;
+    width: 150px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(0, 183, 255);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+section.number div.register {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+section.number span {
+    margin: 10px auto;
+    display: block;
+    font-size: 40px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100px;
+    background-color: white;
+}

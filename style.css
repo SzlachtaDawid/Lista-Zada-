@@ -88,6 +88,7 @@ section.array ul i:nth-of-type(2n-1) {
 
 section.array ul i:nth-last-of-type(1) {
     border-bottom: 1px solid black;
+    animation: animation1 1s;
 }
 
 section.array ul.arrayName {
@@ -116,6 +117,7 @@ section.array ul li {
 
 section.array ul li:nth-last-child(1) {
     border-bottom: 1px solid black;
+    animation: animation1 1s;
 }
 
 section.array ul li:nth-of-type(2n) {
@@ -157,4 +159,14 @@ section.number span {
     border-radius: 10px;
     width: 100px;
     background-color: white;
+}
+
+@keyframes animation1 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+    }
 }

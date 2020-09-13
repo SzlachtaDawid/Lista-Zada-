@@ -15,14 +15,17 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
     if (!inputName.value.length || !inputDescription.value.length) {
         console.log("Pole nie ma żadnej wartości")
+        alert('Podaj Nazwe oraz Opis zadania')
     } else {
         const createLiName = document.createElement('li')
         const createLiDescription = document.createElement('li')
         const createLiDelete = document.createElement('i')
         createLiName.className = 'nameLi'
-        createLiName.textContent = inputName.value
+        let letterName = inputName.value.charAt(0)
+        createLiName.textContent = inputName.value.replace(letterName, letterName.toUpperCase())
         createLiDescription.className = 'descriptionLi'
-        createLiDescription.textContent = inputDescription.value
+        let letterDescription = inputDescription.value.charAt(0)
+        createLiDescription.textContent = inputDescription.value.replace(letterDescription, letterDescription.toUpperCase())
         createLiDelete.className = 'fas fa-times-circle'
         NameList.push(createLiName)
         DescriptionList.push(createLiDescription)

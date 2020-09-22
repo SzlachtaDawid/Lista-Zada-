@@ -5,64 +5,75 @@ const addBtn = document.querySelector('button.add')
 const NameList = []
 const DescriptionList = []
 const DeleteList = []
-const ulNameList = document.querySelector('ul.arrayName')
-const ulDescriptionList = document.querySelector('ul.arrayDescription')
-const ulDeleteList = document.querySelector('ul.delete')
+const TrList = []
+const tdNameList = document.querySelector('ul.arrayName')
+const tdDescriptionList = document.querySelector('ul.arrayDescription')
+const tdDeleteList = document.querySelector('ul.delete')
 const taskNumber = document.querySelector('span')
+const tbody = document.querySelector('tbody')
 
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    if (!inputName.value.length || !inputDescription.value.length) {
-        console.log("Pole nie ma żadnej wartości")
-        alert('Podaj Nazwe oraz Opis zadania')
+    if (!inputName.value.length) {
+        alert('Podaj Nazwe')
     } else {
-        const createLiName = document.createElement('li')
-        const createLiDescription = document.createElement('li')
-        const createLiDelete = document.createElement('i')
-        createLiName.className = 'nameLi'
+        const createTr = document.createElement('tr')
+        const createTdName = document.createElement('td')
+        const createTdDescription = document.createElement('td')
+        const createTdDelete = document.createElement('td')
+        createTdName.className = 'nameTd'
         let letterName = inputName.value.charAt(0)
-        createLiName.textContent = inputName.value.replace(letterName, letterName.toUpperCase())
-        createLiDescription.className = 'descriptionLi'
-        let letterDescription = inputDescription.value.charAt(0)
-        createLiDescription.textContent = inputDescription.value.replace(letterDescription, letterDescription.toUpperCase())
-        createLiDelete.className = 'fas fa-times-circle'
-        NameList.push(createLiName)
-        DescriptionList.push(createLiDescription)
-        DeleteList.push(createLiDelete)
+        createTdName.textContent = inputName.value.replace(letterName, letterName.toUpperCase())
+        createTdDescription.className = 'descriptionTd'
+        if (!inputDescription.value.length) {
+            createTdDescription.textContent = '- - - - -'
+        } else {
+            let letterDescription = inputDescription.value.charAt(0)
+            createTdDescription.textContent = inputDescription.value.replace(letterDescription, letterDescription.toUpperCase())
+        }
+        createTdDelete.className = 'fas fa-times-circle'
+        NameList.push(createTdName)
+        DescriptionList.push(createTdDescription)
+        DeleteList.push(createTdDelete)
+        TrList.push(createTr)
         inputName.value = ""
         inputDescription.value = ""
         renderList()
-        createLiDelete.addEventListener('click', removeTask)
+        createTdDelete.addEventListener('click', removeTask)
     }
 })
 
 
 const renderList = function () {
-    NameList.forEach((names, index) => {
-        names.dataset.index = index;
-        ulNameList.appendChild(names);
+    TrList.forEach((tr, index) => {
+        tr.dataset.index = index;
+        tbody.appendChild(tr);
+        tr.className = 'add'
     })
-    DescriptionList.forEach((descriptions, index) => {
-        descriptions.dataset.index = index;
-        ulDescriptionList.appendChild(descriptions);
-    })
-    DeleteList.forEach((deletes, index) => {
-        deletes.dataset.index = index;
-        ulDeleteList.appendChild(deletes);
-    })
+    for (i = 0; i < NameList.length; i++) {
+        NameList.forEach((names, index) => {
+            names.dataset.index = index;
+            TrList[i].appendChild(NameList[i])
+        })
+        DescriptionList.forEach((descriptions, index) => {
+            descriptions.dataset.index = index;
+            TrList[i].appendChild(DescriptionList[i])
+        })
+        DeleteList.forEach((deletes, index) => {
+            deletes.dataset.index = index;
+            TrList[i].appendChild(DeleteList[i])
+        })
+    }
     taskNumber.textContent = NameList.length;
-    document.querySelector('section.array ul').style.gridTemplateRows = `repeat(${NameList.length}, 1fr)`
 }
 
 const removeTask = (e) => {
-    // e.target.parentNode.remove();
     const index = e.target.dataset.index;
     for (i = 0; i < NameList.length; i++) {
-        ulNameList.removeChild(document.querySelector('li.nameLi'))
-        ulDescriptionList.removeChild(document.querySelector('li.descriptionLi'))
-        ulDeleteList.removeChild(document.querySelector('i'))
+        tbody.removeChild(document.querySelector('tr.add'))
     }
+    TrList.splice(index, 1)
     NameList.splice(index, 1)
     DescriptionList.splice(index, 1)
     DeleteList.splice(index, 1)

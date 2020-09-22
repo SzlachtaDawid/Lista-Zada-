@@ -1,6 +1,6 @@
 const form = document.querySelector('form')
-const inputName = document.querySelector('input.name')
-const inputDescription = document.querySelector('input.description')
+const inputName = document.querySelector('textarea.name')
+const inputDescription = document.querySelector('textarea.description')
 const addBtn = document.querySelector('button.add')
 const NameList = []
 const DescriptionList = []
@@ -28,6 +28,10 @@ form.addEventListener('submit', (e) => {
         createTdDescription.className = 'descriptionTd'
         if (!inputDescription.value.length) {
             createTdDescription.textContent = '- - - - -'
+        } else if (inputDescription.value.substr(0, 1) === ' ') {
+            alert('Nie możesz zaczynać od spacji')
+            inputDescription.value = ""
+            return
         } else {
             let letterDescription = inputDescription.value.charAt(0)
             createTdDescription.textContent = inputDescription.value.replace(letterDescription, letterDescription.toUpperCase())

@@ -15,10 +15,14 @@
 <body>
     <section class="container">
         <section class="creator">
-            <form action="">
+            <form action="" id="form">
                 <h1>Lista Zadań</h1>
-                <input type="text" maxlength="25" class="name" placeholder="Nazwa">
-                <input type="text" maxlength="100" class="description" placeholder="Opis zadania">
+                <!-- <input type="text" maxlength="25" class="name" placeholder="Nazwa">
+                <input type="text" maxlength="100" class="description" placeholder="Opis zadania"> -->
+                <textarea name="text1" id="form" maxlength="25" cols="30" rows="5" class="name"
+                    placeholder="Nazwa"></textarea>
+                <textarea name="text2" id="form" maxlength="100" cols="30" rows="5" class="description"
+                    placeholder="Opis zadania"></textarea>
                 <button class="add">Dodaj zadanie</button>
             </form>
         </section>

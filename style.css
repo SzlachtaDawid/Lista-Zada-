@@ -34,19 +34,22 @@ section.creator form h1 {
     font-size: 70px;
 }
 
-section.creator form input.name {
+section.creator form .name {
     font-size: 20px;
     width: 40%;
+    height: 5vh;
     margin: 5px;
     text-align: center;
+    resize: none;
 }
 
-section.creator form input.description {
+section.creator form .description {
     font-size: 20px;
     width: 40%;
-    height: 15vh;
+    height: 10vh;
     margin: 5px;
     text-align: center;
+    resize: none;
 }
 
 section.creator form button {
@@ -64,6 +67,26 @@ section.creator form button:hover {
     box-shadow: 0px 0px 15px 10px rgba(0, 183, 255, 0.75);
 }
 
+@media (orientation: portrait) and (max-width:720px) {
+    section.creator form h1 {
+        font-size: 50px;
+    }
+
+    section.creator form .name {
+        font-size: 15px;
+    }
+
+    section.creator form .description {
+        font-size: 15px;
+    }
+
+    section.creator form button {
+        margin-top: 5px;
+        padding: 2px;
+        font-size: 15px;
+    }
+}
+
 section.array {
     margin: 30px auto;
     width: 70vw;
@@ -78,6 +101,57 @@ section.array .first {
     font-size: 20px;
 }
 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.table td,
+tr {
+    font-size: 20px;
+    border: 1px solid #ddd;
+    padding: 5px 12px;
+    text-align: center;
+    vertical-align: middle;
+    max-width: 300px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.table tbody tr:nth-child(even) td {
+    background-color: #f3f3f3;
+}
+
+.table td.second {
+    width: 10%;
+}
+
+.table td.fas {
+    height: 100%;
+    width: 100%;
+    color: red;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.table td.maxW {
+    width: 20vw;
+}
+
+@media (orientation: portrait) and (max-width:720px) {
+    section.array .first {
+        font-size: 15px;
+    }
+
+    .table td,
+    tr {
+        font-size: 15px;
+        border: 1px solid #ddd;
+        padding: 2px 6px;
+    }
+}
 
 section.number {
     position: fixed;
@@ -107,6 +181,26 @@ section.number span {
     background-color: white;
 }
 
+@media (orientation: portrait) and (max-width:720px) {
+    section.number {
+        top: 70px;
+        right: 20px;
+        height: 80px;
+        width: 70px;
+    }
+
+    section.number div.register {
+        font-size: 15px;
+    }
+
+    section.number span {
+        margin: 5px auto;
+        font-size: 20px;
+        width: 50px;
+    }
+
+}
+
 @keyframes animation1 {
     0% {
         opacity: 0;
@@ -115,42 +209,4 @@ section.number span {
     100% {
         opacity: 100%;
     }
-}
-
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-.table td,
-th {
-    font-size: 20px;
-    border: 1px solid #ddd;
-    padding: 5px 12px;
-    text-align: center;
-    vertical-align: middle;
-    max-width: 300px;
-    overflow: hidden;
-    word-wrap: break-word;
-}
-
-.table tbody tr:nth-child(even) td {
-    background-color: #f3f3f3;
-}
-
-.table td.second {
-    width: 10%;
-}
-
-.table td.fas {
-    height: 100%;
-    width: 100%;
-    color: red;
-    text-align: center;
-    vertical-align: top;
-}
-
-.table td.maxW {
-    width: 200px;
 }

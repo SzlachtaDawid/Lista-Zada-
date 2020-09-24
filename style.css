@@ -92,7 +92,6 @@ section.array {
     width: 70vw;
     display: flex;
     justify-content: space-between;
-    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 section.array .first {
@@ -105,7 +104,9 @@ section.array .first {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
 }
+
 
 .table td,
 tr {
@@ -137,10 +138,11 @@ tr {
 }
 
 .table td.maxW {
-    width: 20vw;
+    width: 15vh;
+    word-wrap: break-word;
 }
 
-@media (orientation: portrait) and (max-width:720px) {
+@media (orientation: portrait) and (max-width:750px) {
     section.array .first {
         font-size: 15px;
     }
@@ -150,6 +152,15 @@ tr {
         font-size: 15px;
         border: 1px solid #ddd;
         padding: 2px 6px;
+        max-width: 150px;
+    }
+}
+
+@media (orientation: portrait) and (max-width:420px) {
+
+    .table td,
+    tr {
+        max-width: 100px;
     }
 }
 

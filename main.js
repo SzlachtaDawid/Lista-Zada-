@@ -26,10 +26,15 @@ form.addEventListener('submit', (e) => {
         let letterName = inputName.value.charAt(0)
         createTdName.textContent = inputName.value.replace(letterName, letterName.toUpperCase())
         createTdDescription.className = 'descriptionTd'
+        if (inputName.value.substr(0, 1) === ' ') {
+            alert('Nie możesz zaczynać od spacji (pole "Nazwa")')
+            inputName.value = ""
+            return
+        }
         if (!inputDescription.value.length) {
             createTdDescription.textContent = '- - - - -'
         } else if (inputDescription.value.substr(0, 1) === ' ') {
-            alert('Nie możesz zaczynać od spacji')
+            alert('Nie możesz zaczynać od spacji (pole "Opis zadania")')
             inputDescription.value = ""
             return
         } else {
